@@ -1,0 +1,135 @@
+{
+  "upstream": {
+    "name": "konsheng/Sensitive-lexicon",
+    "url": "https://github.com/konsheng/Sensitive-lexicon",
+    "branch": "main",
+    "license": "MIT",
+    "commit": "5a8da94c61c160e203a6b2fcfafbea642404d50c",
+    "commitDate": "2026-06-15T17:19:48Z"
+  },
+  "syncedAt": "2026-07-29T08:22:36.935Z",
+  "syncedDirectories": [
+    "data/upstream/Organized",
+    "data/upstream/Vocabulary"
+  ],
+  "files": [
+    {
+      "path": "data/upstream/Organized/政治类型.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1,
+      "termLines": 0
+    },
+    {
+      "path": "data/upstream/Vocabulary/COVID-19词库.txt",
+      "sha256": "019d56e1dd5dd88907c17f66511fe34c5512d83ae2de511fafc443b3fc9bdf4d",
+      "bytes": 1628,
+      "termLines": 72
+    },
+    {
+      "path": "data/upstream/Vocabulary/GFW补充词库.txt",
+      "sha256": "fac55e314c39532c64b5aba8c3a7bc534ab87e3830f6c3861ad29e08d1d4ac96",
+      "bytes": 90429,
+      "termLines": 6171
+    },
+    {
+      "path": "data/upstream/Vocabulary/其他词库.txt",
+      "sha256": "504ac4dcffa2a078957750c3ad06713cd1ee883af23310507ed85a01bac0ec2f",
+      "bytes": 1367,
+      "termLines": 157
+    },
+    {
+      "path": "data/upstream/Vocabulary/反动词库.txt",
+      "sha256": "b1f24a2b856445f0d4f106a487f9fd1c114c17dac64853108539874ffc3c6714",
+      "bytes": 5887,
+      "termLines": 551
+    },
+    {
+      "path": "data/upstream/Vocabulary/广告类型.txt",
+      "sha256": "8f3d5451b8392c1a6b629d504e437b92ef1fdb3128581f6362a495d6fec41473",
+      "bytes": 1251,
+      "termLines": 120
+    },
+    {
+      "path": "data/upstream/Vocabulary/政治类型.txt",
+      "sha256": "0aa2ea38cb8164705068cab8f0ef060bc65b2bb8053bc07ff2b5bd96f928743e",
+      "bytes": 3006,
+      "termLines": 303
+    },
+    {
+      "path": "data/upstream/Vocabulary/新思想启蒙.txt",
+      "sha256": "63460b19174237e686a549f7b7756eefbd03f13f8a6a0103a9ab3d032ab7feec",
+      "bytes": 250,
+      "termLines": 16
+    },
+    {
+      "path": "data/upstream/Vocabulary/暴恐词库.txt",
+      "sha256": "16221e4c76641b13513bb8e775840f08716b80dcd285f8cc78fb040314814631",
+      "bytes": 1941,
+      "termLines": 178
+    },
+    {
+      "path": "data/upstream/Vocabulary/民生词库.txt",
+      "sha256": "d61b97b789daf977ee78e6fccc5e143d22bc7f2a829a1f150b682dbf102ec97a",
+      "bytes": 5954,
+      "termLines": 510
+    },
+    {
+      "path": "data/upstream/Vocabulary/涉枪涉爆.txt",
+      "sha256": "b0323790e2e91d6453c944022b90a10aa5110ecfd857c9ec0e84a478e5f9a8fe",
+      "bytes": 8824,
+      "termLines": 434
+    },
+    {
+      "path": "data/upstream/Vocabulary/网易前端过滤敏感词库.txt",
+      "sha256": "36f071c80440f3fccec32340324ad45ade6df6ab423b9a2641c9fcf8f0e5f95a",
+      "bytes": 114008,
+      "termLines": 7746
+    },
+    {
+      "path": "data/upstream/Vocabulary/色情类型.txt",
+      "sha256": "3e844e67b1f3dd50c21273beffa0c2f4c9f3b8fe3f7999353a0b5e6ff0cf94bc",
+      "bytes": 2349,
+      "termLines": 304
+    },
+    {
+      "path": "data/upstream/Vocabulary/色情词库.txt",
+      "sha256": "9e3a27bf849acb3a907278218cd883c33347edd9f55d7bb26cc4b84bf956bc99",
+      "bytes": 7596,
+      "termLines": 552
+    },
+    {
+      "path": "data/upstream/Vocabulary/补充词库.txt",
+      "sha256": "4fa11b6a2f5e33f3227613a92c4579c37f12bd533090db0720f15025ae19ce65",
+      "bytes": 11459,
+      "termLines": 1063
+    },
+    {
+      "path": "data/upstream/Vocabulary/贪腐词库.txt",
+      "sha256": "2b76b487081d81817c9097a04267435abf5fdb4b87ce25ceecb27d6d70cc78d3",
+      "bytes": 2747,
+      "termLines": 240
+    },
+    {
+      "path": "data/upstream/Vocabulary/零时-Tencent.txt",
+      "sha256": "292d12724734f29e8ecc776b1aa3f6167029a015b64fcddc660c9b8ec2378a34",
+      "bytes": 716330,
+      "termLines": 41789
+    },
+    {
+      "path": "data/upstream/Vocabulary/非法网址.txt",
+      "sha256": "09452d23f6acf0be7bcdd113e0b91b2dfde79ae818f9d8746c305439c3d9a6d1",
+      "bytes": 219148,
+      "termLines": 14594
+    }
+  ],
+  "vendoredThirdParty": [
+    {
+      "name": "OpenCC (BYVoid/OpenCC)",
+      "url": "https://github.com/BYVoid/OpenCC",
+      "license": "Apache-2.0",
+      "path": "data/vendor/opencc/TSCharacters.txt",
+      "commit": "56d028aa324c407a51b74da7891450e408432569",
+      "usage": "Traditional to simplified single-character mapping, compiled into src/core/data/traditional-simplified.ts"
+    }
+  ]
+}

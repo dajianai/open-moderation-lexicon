@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-07-29T08:49:08.746Z",
+  "environment": {
+    "node": "v22.13.0",
+    "platform": "darwin-arm64",
+    "cpu": "Apple M4 Pro",
+    "cpuCount": 12,
+    "totalMemoryGiB": 24
+  },
+  "lexicon": {
+    "version": "2026.07.29",
+    "upstreamCommit": "5a8da94c61c160e203a6b2fcfafbea642404d50c",
+    "availableTerms": 50837
+  },
+  "builds": [
+    {
+      "termCount": 1000,
+      "buildMs": 2.045,
+      "patternCount": 1000,
+      "nodeCount": 6998,
+      "automatonBytes": 195940
+    },
+    {
+      "termCount": 10000,
+      "buildMs": 15.399,
+      "patternCount": 9938,
+      "nodeCount": 61582,
+      "automatonBytes": 1724292
+    },
+    {
+      "termCount": 50000,
+      "buildMs": 113.578,
+      "patternCount": 48431,
+      "nodeCount": 270179,
+      "automatonBytes": 7565008
+    }
+  ],
+  "scans": [
+    {
+      "termCount": 1000,
+      "textKiB": 1,
+      "iterations": 15,
+      "medianMs": 0.061,
+      "p95Ms": 0.187,
+      "throughputMiBPerSecond": 16.947,
+      "hitCount": 2
+    },
+    {
+      "termCount": 1000,
+      "textKiB": 10,
+      "iterations": 15,
+      "medianMs": 0.284,
+      "p95Ms": 0.824,
+      "throughputMiBPerSecond": 34.68,
+      "hitCount": 19
+    },
+    {
+      "termCount": 1000,
+      "textKiB": 100,
+      "iterations": 15,
+      "medianMs": 1.924,
+      "p95Ms": 2.649,
+      "throughputMiBPerSecond": 50.794,
+      "hitCount": 189
+    },
+    {
+      "termCount": 10000,
+      "textKiB": 1,
+      "iterations": 15,
+      "medianMs": 0.025,
+      "p95Ms": 0.245,
+      "throughputMiBPerSecond": 41.671,
+      "hitCount": 2
+    },
+    {
+      "termCount": 10000,
+      "textKiB": 10,
+      "iterations": 15,
+      "medianMs": 0.22,
+      "p95Ms": 0.225,
+      "throughputMiBPerSecond": 44.479,
+      "hitCount": 19
+    },
+    {
+      "termCount": 10000,
+      "textKiB": 100,
+      "iterations": 15,
+      "medianMs": 2.344,
+      "p95Ms": 3.26,
+      "throughputMiBPerSecond": 41.688,
+      "hitCount": 189
+    },
+    {
+      "termCount": 50000,
+      "textKiB": 1,
+      "iterations": 15,
+      "medianMs": 0.028,
+      "p95Ms": 0.048,
+      "throughputMiBPerSecond": 36.993,
+      "hitCount": 10
+    },
+    {
+      "termCount": 50000,
+      "textKiB": 10,
+      "iterations": 15,
+      "medianMs": 0.247,
+      "p95Ms": 1,
+      "throughputMiBPerSecond": 39.723,
+      "hitCount": 95
+    },
+    {
+      "termCount": 50000,
+      "textKiB": 100,
+      "iterations": 15,
+      "medianMs": 2.621,
+      "p95Ms": 15.511,
+      "throughputMiBPerSecond": 37.29,
+      "hitCount": 946
+    }
+  ],
+  "sdkCall": {
+    "description": "check() with masking on a 420 character Chinese text, default selection of 17689 terms",
+    "initMs": 99.117,
+    "medianMs": 0.028,
+    "p95Ms": 0.03
+  }
+}

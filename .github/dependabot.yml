@@ -1,0 +1,62 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: monday
+      time: '04:00'
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      # Fastify and its plugins release together often enough that separate pull
+      # requests just mean more CI runs.
+      fastify:
+        patterns:
+          - 'fastify'
+          - '@fastify/*'
+      # Lint and test tooling never affects the published runtime.
+      dev-tooling:
+        dependency-type: development
+        patterns:
+          - 'eslint*'
+          - '@eslint/*'
+          - 'typescript-eslint'
+          - 'prettier*'
+          - 'vitest'
+          - '@vitest/*'
+          - 'tsx'
+    ignore:
+      # Node type definitions must track the minimum supported Node version, not
+      # the newest one, or the code stops compiling for users on 22.x.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+      - ci
+    commit-message:
+      prefix: chore
+
+  - package-ecosystem: docker
+    directory: '/'
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+      - docker
+    commit-message:
+      prefix: chore
+    ignore:
+      # The image tracks the Active LTS line deliberately.
+      - dependency-name: 'node'
+        update-types: ['version-update:semver-major']

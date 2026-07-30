@@ -1,0 +1,58 @@
+name: Feature request
+description: Suggest a capability that does not exist yet
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project is a keyword detector with a policy layer. Semantic analysis,
+        LLM-based moderation, and image or audio moderation are deliberately out of
+        scope — see the Roadmap in the README before filing.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do that you cannot do today?
+      placeholder: |
+        I need to detect terms written in pinyin, because users write "fa lun gong"
+        to get past the filter.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What API or option would you add? How would it default?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: |
+        Including whether a custom term list, an allowlist entry or `fuzzy` mode
+        already solves it.
+
+  - type: dropdown
+    id: false-positives
+    attributes:
+      label: Effect on false positives
+      description: Anything that loosens matching will match more ordinary text.
+      options:
+        - No effect
+        - Increases them, so it should be opt-in
+        - Reduces them
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is not semantic analysis, LLM moderation, or image/audio moderation
+          required: true

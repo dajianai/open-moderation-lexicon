@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+tmp
+.git
+.github
+tests
+data/upstream
+data/reports
+data/vendor
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store

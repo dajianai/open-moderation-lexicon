@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/open-moderation-lexicon/open-moderation-lexicon/security/advisories/new
+    about: Report privately. Do not open a public issue for a vulnerability.
+
+  - name: The content of the word lists themselves
+    url: https://github.com/konsheng/Sensitive-lexicon/issues
+    about: Terms come from the upstream project. Report additions or removals there.
+
+  - name: Question or idea
+    url: https://github.com/open-moderation-lexicon/open-moderation-lexicon/discussions
+    about: For usage questions and feature discussion before opening an issue.

@@ -1,0 +1,113 @@
+{
+  "$comment": "Maps upstream source files to category ids and default severities. Edit this file to re-tune the bundled lexicon, then run `npm run lexicon:build`. `severity` drives the default policy: only `high` produces a `block` decision. `defaultEnabled: false` keeps a broad, false-positive heavy list out of the default `categories: ['all']` selection; it can still be requested explicitly or via `categories: ['*']`.",
+  "defaultSeverity": "low",
+  "sources": {
+    "Organized/政治类型.txt": {
+      "category": "politics-organized",
+      "displayName": "政治类型（Organized）",
+      "severity": "medium",
+      "description": "Upstream curated political terms."
+    },
+    "Vocabulary/COVID-19词库.txt": {
+      "category": "covid-19",
+      "displayName": "COVID-19 词库",
+      "severity": "low",
+      "description": "Pandemic related rumours and slang."
+    },
+    "Vocabulary/GFW补充词库.txt": {
+      "category": "censorship-gfw",
+      "displayName": "GFW 补充词库",
+      "severity": "low",
+      "description": "Contains many ordinary words (联系, 网络); enable explicitly when you need maximum recall.",
+      "defaultEnabled": false
+    },
+    "Vocabulary/其他词库.txt": {
+      "category": "misc",
+      "displayName": "其他词库",
+      "severity": "low",
+      "defaultEnabled": false,
+      "description": "Loosely related terms (place names, job titles)."
+    },
+    "Vocabulary/反动词库.txt": {
+      "category": "politics-dissent",
+      "displayName": "反动词库",
+      "severity": "medium"
+    },
+    "Vocabulary/广告类型.txt": {
+      "category": "advertising",
+      "displayName": "广告类型",
+      "severity": "low",
+      "description": "Ordinary commercial words (兼职, 招聘).",
+      "defaultEnabled": false
+    },
+    "Vocabulary/政治类型.txt": {
+      "category": "politics",
+      "displayName": "政治类型",
+      "severity": "medium"
+    },
+    "Vocabulary/新思想启蒙.txt": {
+      "category": "politics-ideology",
+      "displayName": "新思想启蒙",
+      "severity": "low"
+    },
+    "Vocabulary/暴恐词库.txt": {
+      "category": "violence-terrorism",
+      "displayName": "暴恐词库",
+      "severity": "high",
+      "description": "Violence, terrorism and extremist organisations. Blocked by the default policy."
+    },
+    "Vocabulary/民生词库.txt": {
+      "category": "social-issues",
+      "displayName": "民生词库",
+      "severity": "low",
+      "defaultEnabled": false,
+      "description": "Everyday words about social topics (打人, 拆迁)."
+    },
+    "Vocabulary/涉枪涉爆.txt": {
+      "category": "weapons-explosives",
+      "displayName": "涉枪涉爆",
+      "severity": "high",
+      "description": "Firearms and explosives trade. Blocked by the default policy."
+    },
+    "Vocabulary/网易前端过滤敏感词库.txt": {
+      "category": "general-netease",
+      "displayName": "网易前端过滤敏感词库",
+      "severity": "low",
+      "defaultEnabled": false,
+      "description": "Contains ordinary English words (this, name); enable explicitly when you need maximum recall."
+    },
+    "Vocabulary/色情类型.txt": {
+      "category": "adult",
+      "displayName": "色情类型",
+      "severity": "medium"
+    },
+    "Vocabulary/色情词库.txt": {
+      "category": "adult-extended",
+      "displayName": "色情词库",
+      "severity": "medium"
+    },
+    "Vocabulary/补充词库.txt": {
+      "category": "supplementary",
+      "displayName": "补充词库",
+      "severity": "low"
+    },
+    "Vocabulary/贪腐词库.txt": {
+      "category": "corruption",
+      "displayName": "贪腐词库",
+      "severity": "low"
+    },
+    "Vocabulary/零时-Tencent.txt": {
+      "category": "general-tencent",
+      "displayName": "零时-Tencent",
+      "severity": "low",
+      "description": "Very large general list with ordinary words (IS, of); enable explicitly when you need maximum recall.",
+      "defaultEnabled": false
+    },
+    "Vocabulary/非法网址.txt": {
+      "category": "illegal-url",
+      "displayName": "非法网址",
+      "severity": "medium",
+      "description": "Domain names of illegal sites."
+    }
+  }
+}

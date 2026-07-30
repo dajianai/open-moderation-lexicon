@@ -1,0 +1,154 @@
+name: Upstream lexicon sync
+
+# Checks the upstream lexicon weekly and opens a pull request when it moved.
+#
+# It deliberately does not merge and does not publish: a human has to read the term
+# diff in data/reports/sync-report.md and decide whether the change is acceptable.
+
+on:
+  schedule:
+    # Mondays at 03:17 UTC. An odd minute avoids the top-of-hour scheduling crowd.
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Upstream ref to sync (default: latest main)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: upstream-sync
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check upstream
+    runs-on: ubuntu-latest
+    outputs:
+      moved: ${{ steps.check.outputs.moved }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - run: npm ci
+
+      - name: Compare the lock file with upstream HEAD
+        id: check
+        run: |
+          if [ -n "${{ inputs.ref }}" ]; then
+            echo "manual run for ref ${{ inputs.ref }}; syncing unconditionally"
+            echo "moved=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          set +e
+          npm run --silent lexicon:sync -- --check
+          status=$?
+          set -e
+          # 10 means upstream moved, 0 means unchanged, anything else is a failure.
+          case "$status" in
+            0) echo "moved=false" >> "$GITHUB_OUTPUT" ;;
+            10) echo "moved=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::upstream check failed with exit code $status"; exit "$status" ;;
+          esac
+
+  sync:
+    name: Sync, verify and open a pull request
+    needs: check
+    if: needs.check.outputs.moved == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync upstream
+        run: npm run lexicon:sync -- ${{ inputs.ref && format('--ref {0}', inputs.ref) || '' }}
+
+      - name: Rebuild the lexicon
+        run: npm run lexicon:build
+
+      - name: Validate the lexicon
+        run: npm run lexicon:validate
+
+      - name: Run the full test suite against the new data
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run build
+
+      - name: Collect the report
+        id: report
+        run: |
+          commit=$(node -e "console.log(require('./UPSTREAM.lock.json').upstream.commit)")
+          short="${commit:0:12}"
+          echo "commit=$commit" >> "$GITHUB_OUTPUT"
+          echo "short=$short" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "Automated upstream sync. **Review the term diff before merging.**"
+            echo
+            echo "Upstream: https://github.com/konsheng/Sensitive-lexicon/commit/$commit"
+            echo
+            cat data/reports/sync-report.md
+            echo
+            echo "---"
+            echo
+            echo "<details><summary>Lexicon build report</summary>"
+            echo
+            cat data/reports/build-report.md
+            echo
+            echo "</details>"
+            echo
+            echo "---"
+            echo
+            echo "### Reviewer checklist"
+            echo
+            echo "- [ ] Added terms look like sensitive terms, not ordinary words"
+            echo "- [ ] Removed terms were not something we relied on"
+            echo "- [ ] Any new upstream file is mapped in \`data/overrides/category-config.json\`"
+            echo "      (an unmapped source is reported by the build)"
+            echo "- [ ] Category counts changed by a plausible amount"
+            echo "- [ ] \`defaultEnabled\` is still correct for any changed category"
+            echo
+            echo "Merging this pull request does **not** publish a release. Cut one manually"
+            echo "with \`npm version minor && npm publish\` after review."
+          } > /tmp/pr-body.md
+
+      - name: Create the pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/upstream-sync
+          base: main
+          commit-message: |
+            chore(lexicon): sync upstream to ${{ steps.report.outputs.short }}
+
+            Regenerates data/upstream, data/generated and the reports from
+            konsheng/Sensitive-lexicon@${{ steps.report.outputs.commit }}.
+          title: 'chore(lexicon): sync upstream to ${{ steps.report.outputs.short }}'
+          body-path: /tmp/pr-body.md
+          labels: |
+            lexicon
+            automated
+          add-paths: |
+            data/upstream
+            data/generated
+            data/reports
+            UPSTREAM.lock.json
+          delete-branch: true
+          draft: false

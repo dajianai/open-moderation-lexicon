@@ -1,0 +1,76 @@
+name: False positive or false negative
+description: A term matched ordinary text, or an obvious term was missed
+labels: [lexicon, detection-quality]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These reports are genuinely useful: they are how the default category selection
+        and the allowlist improve.
+
+        Two things to know first:
+
+        - **Some false positives are expected.** The upstream lists mix precise terms with
+          ordinary words. That is why broad categories are excluded by default and why the
+          default decision is `review` rather than `block`.
+        - **Evasion is expected to be possible.** Keyword matching cannot catch paraphrase,
+          new slang or homophones. A missed term that requires understanding meaning is a
+          limitation, not a bug.
+
+        Please use a constructed example, not real user content.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Which is it
+      options:
+        - False positive (matched ordinary text)
+        - False negative (missed a term that is in the lexicon)
+    validations:
+      required: true
+
+  - type: textarea
+    id: text
+    attributes:
+      label: Text
+      description: The text you checked. Constructed examples only.
+      placeholder: This is a class of assets that outperformed the market.
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: 'Output of: `npx oml check --json "<text>"`'
+      render: json
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Category the term came from
+      description: The `category` field of the match. Skip for a false negative.
+      placeholder: general-tencent
+
+  - type: dropdown
+    id: selection
+    attributes:
+      label: Category selection in use
+      options:
+        - Default (`all`, only defaultEnabled categories)
+        - Everything (`*`)
+        - An explicit category list
+    validations:
+      required: true
+
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What should happen instead
+      description: |
+        For a false positive: should the term be allowlisted, moved to a different
+        category, or should its category leave the default selection?
+    validations:
+      required: true

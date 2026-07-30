@@ -1,0 +1,100 @@
+{
+  "name": "open-moderation-lexicon",
+  "version": "0.1.0",
+  "description": "Multilingual keyword-based moderation toolkit (TypeScript SDK, REST API, CLI) built on an open sensitive-word lexicon with Aho-Corasick matching.",
+  "keywords": [
+    "moderation",
+    "sensitive-words",
+    "aho-corasick",
+    "content-filter",
+    "chinese",
+    "lexicon",
+    "fastify",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "open-moderation-lexicon contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/api/server.d.ts",
+      "import": "./dist/api/server.js"
+    },
+    "./openapi.json": "./openapi.json"
+  },
+  "bin": {
+    "open-moderation-lexicon": "./dist/cli/index.js",
+    "oml": "./dist/cli/index.js",
+    "open-moderation-lexicon-server": "./dist/api/serve.js"
+  },
+  "files": [
+    "dist",
+    "data/generated",
+    "data/overrides",
+    "openapi.json",
+    "UPSTREAM.lock.json",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md",
+    "README.zh-CN.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "ci": "npm run lint && npm run format:check && npm run typecheck && npm test && npm run build && npm run lexicon:validate",
+    "build": "tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "dev": "tsx watch src/api/serve.ts",
+    "start": "node dist/api/serve.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:perf": "vitest run --config vitest.perf.config.ts",
+    "lexicon:sync": "tsx scripts/sync-upstream.ts",
+    "lexicon:build": "tsx scripts/build-lexicon.ts",
+    "lexicon:validate": "tsx scripts/validate-lexicon.ts",
+    "openapi:generate": "tsx scripts/generate-openapi.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "prepack": "npm run build && npm run openapi:generate"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/swagger": "^9.8.1",
+    "@fastify/swagger-ui": "^6.1.1",
+    "fastify": "^5.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.8.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-moderation-lexicon/open-moderation-lexicon.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

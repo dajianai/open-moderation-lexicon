@@ -1,0 +1,4 @@
+{
+  "$comment": "Locally maintained terms merged into the lexicon at load time. No rebuild required. `category` defaults to `custom`, `severity` defaults to `medium`.",
+  "terms": []
+}

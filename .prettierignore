@@ -1,0 +1,9 @@
+dist
+coverage
+node_modules
+data/upstream
+data/generated
+data/reports
+openapi.json
+package-lock.json
+UPSTREAM.lock.json

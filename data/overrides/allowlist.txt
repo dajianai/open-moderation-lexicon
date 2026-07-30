@@ -1,0 +1,9 @@
+# Allowlist / false-positive suppression list.
+#
+# One entry per line. Lines starting with `#` and empty lines are ignored.
+# Entries are compared after `normalized` processing, and an entry also suppresses
+# any match it fully covers, so a longer safe phrase can rescue a shorter term.
+#
+# Examples (uncomment to enable):
+# 冰岛
+# 三个代表

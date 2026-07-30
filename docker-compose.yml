@@ -1,0 +1,43 @@
+services:
+  moderation:
+    build: .
+    image: open-moderation-lexicon:local
+    ports:
+      - '${PORT:-3000}:3000'
+    environment:
+      # Everything has a safe default; see .env.example for the full list.
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      MAX_TEXT_LENGTH: ${MAX_TEXT_LENGTH:-20000}
+      BATCH_MAX_ITEMS: ${BATCH_MAX_ITEMS:-100}
+      LEXICON_CATEGORIES: ${LEXICON_CATEGORIES:-all}
+      DEFAULT_MODE: ${DEFAULT_MODE:-normalized}
+      POLICY_BLOCK_SEVERITIES: ${POLICY_BLOCK_SEVERITIES:-high}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX:-120}
+      ENABLE_DOCS: ${ENABLE_DOCS:-true}
+      # Set API_TOKEN and CORS_ORIGIN in .env rather than here.
+      API_TOKEN: ${API_TOKEN:-}
+      CORS_ORIGIN: ${CORS_ORIGIN:-}
+    restart: unless-stopped
+    # The service is stateless and never writes to disk, so it can run read-only.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    deploy:
+      resources:
+        limits:
+          # 50k terms need ~7 MiB for the automaton; 512 MiB is generous headroom.
+          memory: 512M
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
