@@ -4,10 +4,10 @@
     "url": "https://github.com/konsheng/Sensitive-lexicon",
     "branch": "main",
     "license": "MIT",
-    "commit": "5a8da94c61c160e203a6b2fcfafbea642404d50c",
-    "commitDate": "2026-06-15T17:19:48Z"
+    "commit": "d967c30b053fa40b06c5a0dddf0be493f2dfae46",
+    "commitDate": "2026-08-17T05:27:19Z"
   },
-  "syncedAt": "2026-07-29T08:22:36.935Z",
+  "syncedAt": "2026-09-14T09:02:24.107Z",
   "syncedDirectories": [
     "data/upstream/Organized",
     "data/upstream/Vocabulary"

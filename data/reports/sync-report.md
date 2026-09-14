@@ -2,9 +2,9 @@
 
 - Upstream: https://github.com/konsheng/Sensitive-lexicon
 - Previous commit: 5a8da94c61c160e203a6b2fcfafbea642404d50c
-- New commit: 5a8da94c61c160e203a6b2fcfafbea642404d50c
-- Upstream commit date: 2026-06-15T17:19:48Z
-- Synced at: 2026-07-29T08:22:36.918Z
+- New commit: d967c30b053fa40b06c5a0dddf0be493f2dfae46
+- Upstream commit date: 2026-08-17T05:27:19Z
+- Synced at: 2026-09-14T09:02:24.078Z
 
 ## Files
 

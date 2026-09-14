@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T07:52:01.226Z",
+  "generatedAt": "2026-09-14T09:02:24.404Z",
   "note": "Terms flagged during the build. Single-character terms are kept in the artifact but excluded at load time by default.",
   "count": 1872,
   "terms": [

@@ -1,9 +1,9 @@
 # Lexicon build report
 
-- Built at: 2026-07-29T07:52:01.226Z
-- Lexicon version: 2026.07.29
-- Upstream commit: 5a8da94c61c160e203a6b2fcfafbea642404d50c
-- Upstream synced at: 2026-07-29T07:46:38.973Z
+- Built at: 2026-09-14T09:02:24.404Z
+- Lexicon version: 2026.09.14
+- Upstream commit: d967c30b053fa40b06c5a0dddf0be493f2dfae46
+- Upstream synced at: 2026-09-14T09:02:24.107Z
 
 ## Totals
 
@@ -14,7 +14,7 @@
 | Terms before de-duplication | 87044 |
 | Terms after de-duplication | 51336 |
 | Duplicates removed | 35695 |
-| Duplicates across source files | 27172 |
+| Duplicates across source files | 23458 |
 | Terms re-assigned to a higher-severity category | 14952 |
 | Normalized-form collisions | 1674 |
 | Single-character terms | 993 |
