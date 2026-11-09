@@ -1,9 +1,9 @@
 {
-  "version": "2026.07.29",
-  "upstreamCommit": "5a8da94c61c160e203a6b2fcfafbea642404d50c",
-  "syncedAt": "2026-07-29T07:46:38.973Z",
-  "builtAt": "2026-07-29T07:52:01.226Z",
-  "termCount": 51336,
+  "version": "2026.11.09",
+  "upstreamCommit": "68a595fb24d31bd9f882c081b4252443a69ac57b",
+  "syncedAt": "2026-11-09T11:42:00.974Z",
+  "builtAt": "2026-11-09T11:42:01.354Z",
+  "termCount": 64260,
   "categories": [
     {
       "id": "adult",
@@ -39,7 +39,7 @@
       "id": "corruption",
       "displayName": "贪腐词库",
       "severity": "low",
-      "termCount": 171,
+      "termCount": 170,
       "defaultEnabled": true
     },
     {
@@ -54,7 +54,7 @@
       "id": "general-netease",
       "displayName": "网易前端过滤敏感词库",
       "severity": "low",
-      "termCount": 7350,
+      "termCount": 7092,
       "defaultEnabled": false,
       "description": "Contains ordinary English words (this, name); enable explicitly when you need maximum recall."
     },
@@ -62,7 +62,7 @@
       "id": "general-tencent",
       "displayName": "零时-Tencent",
       "severity": "low",
-      "termCount": 19925,
+      "termCount": 19879,
       "defaultEnabled": false,
       "description": "Very large general list with ordinary words (IS, of); enable explicitly when you need maximum recall."
     },
@@ -115,7 +115,7 @@
       "id": "social-issues",
       "displayName": "民生词库",
       "severity": "low",
-      "termCount": 287,
+      "termCount": 286,
       "defaultEnabled": false,
       "description": "Everyday words about social topics (打人, 拆迁)."
     },
@@ -123,7 +123,7 @@
       "id": "supplementary",
       "displayName": "补充词库",
       "severity": "low",
-      "termCount": 832,
+      "termCount": 829,
       "defaultEnabled": true
     },
     {
@@ -141,6 +141,13 @@
       "termCount": 434,
       "defaultEnabled": true,
       "description": "Firearms and explosives trade. Blocked by the default policy."
+    },
+    {
+      "id": "微信输入法内置词库26117",
+      "displayName": "微信输入法内置词库26.11.7",
+      "severity": "low",
+      "termCount": 13233,
+      "defaultEnabled": true
     }
   ],
   "sources": [
@@ -187,10 +194,17 @@
       "sha256": "8f3d5451b8392c1a6b629d504e437b92ef1fdb3128581f6362a495d6fec41473"
     },
     {
+      "path": "Vocabulary/微信输入法/微信输入法内置词库26.11.7.txt",
+      "name": "微信输入法内置词库26.11.7.txt",
+      "category": "微信输入法内置词库26117",
+      "termCount": 13243,
+      "sha256": "71d852052a1a19fe1c3162f98eaffe56ccc41ca22d09be7fce6408a8b11de346"
+    },
+    {
       "path": "Vocabulary/政治类型.txt",
       "name": "政治类型.txt",
       "category": "politics",
-      "termCount": 249,
+      "termCount": 243,
       "sha256": "0aa2ea38cb8164705068cab8f0ef060bc65b2bb8053bc07ff2b5bd96f928743e"
     },
     {
@@ -204,14 +218,14 @@
       "path": "Vocabulary/暴恐词库.txt",
       "name": "暴恐词库.txt",
       "category": "violence-terrorism",
-      "termCount": 139,
+      "termCount": 138,
       "sha256": "16221e4c76641b13513bb8e775840f08716b80dcd285f8cc78fb040314814631"
     },
     {
       "path": "Vocabulary/民生词库.txt",
       "name": "民生词库.txt",
       "category": "social-issues",
-      "termCount": 291,
+      "termCount": 290,
       "sha256": "d61b97b789daf977ee78e6fccc5e143d22bc7f2a829a1f150b682dbf102ec97a"
     },
     {
@@ -225,42 +239,42 @@
       "path": "Vocabulary/网易前端过滤敏感词库.txt",
       "name": "网易前端过滤敏感词库.txt",
       "category": "general-netease",
-      "termCount": 7365,
+      "termCount": 7107,
       "sha256": "36f071c80440f3fccec32340324ad45ade6df6ab423b9a2641c9fcf8f0e5f95a"
     },
     {
       "path": "Vocabulary/色情类型.txt",
       "name": "色情类型.txt",
       "category": "adult",
-      "termCount": 182,
+      "termCount": 181,
       "sha256": "3e844e67b1f3dd50c21273beffa0c2f4c9f3b8fe3f7999353a0b5e6ff0cf94bc"
     },
     {
       "path": "Vocabulary/色情词库.txt",
       "name": "色情词库.txt",
       "category": "adult-extended",
-      "termCount": 180,
+      "termCount": 178,
       "sha256": "9e3a27bf849acb3a907278218cd883c33347edd9f55d7bb26cc4b84bf956bc99"
     },
     {
       "path": "Vocabulary/补充词库.txt",
       "name": "补充词库.txt",
       "category": "supplementary",
-      "termCount": 832,
+      "termCount": 829,
       "sha256": "4fa11b6a2f5e33f3227613a92c4579c37f12bd533090db0720f15025ae19ce65"
     },
     {
       "path": "Vocabulary/贪腐词库.txt",
       "name": "贪腐词库.txt",
       "category": "corruption",
-      "termCount": 171,
+      "termCount": 170,
       "sha256": "2b76b487081d81817c9097a04267435abf5fdb4b87ce25ceecb27d6d70cc78d3"
     },
     {
       "path": "Vocabulary/零时-Tencent.txt",
       "name": "零时-Tencent.txt",
       "category": "general-tencent",
-      "termCount": 34519,
+      "termCount": 34473,
       "sha256": "292d12724734f29e8ecc776b1aa3f6167029a015b64fcddc660c9b8ec2378a34"
     },
     {
