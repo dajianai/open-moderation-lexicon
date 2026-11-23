@@ -6,6 +6,9 @@
 
 > **一个持续更新的中文敏感词库，帮助开发者和内容审核者快速识别并过滤不当文本。**
 
+## 更新日志
+- **添加微信输入法内置词库 26.11.7**
+
 ## 目录
 
 * [简介](#简介)
@@ -82,21 +85,12 @@ git clone https://github.com/Konsheng/Sensitive-lexicon.git
 
 感谢所有贡献者的关注与支持！
 
-## 敏感词检测服务
-- 提供基于 Go 的敏感词检测服务，支持模糊匹配与词库热加载。
-- 服务代码路径：`./cmd/server`（包含 REST API：`/detect`、`/contains`、`/reload`、`/health`）。
-- 分支导航：
-  - `dev` 开发版（服务与工程化更新更频繁）：https://github.com/Konsheng/Sensitive-lexicon/tree/dev
-- Docker 运行示例：
-  - `docker run -p 8080:8080 ghcr.io/<您的用户名>/sensitive-lexicon-server:latest`
-  - 环境变量：`PORT`, `LEXICON_DIR`, `FUZZY_MIN_NGRAM`, `FUZZY_MAX_NGRAM`, `FUZZY_MAX_DISTANCE`
-
 ## Star History
-<a href="https://star-history.com/#konsheng/Sensitive-lexicon&Date">
+<a href="https://star-history.dera.page/#konsheng/Sensitive-lexicon&type=Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=konsheng/Sensitive-lexicon&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=konsheng/Sensitive-lexicon&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=konsheng/Sensitive-lexicon&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=konsheng/Sensitive-lexicon&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=konsheng/Sensitive-lexicon&type=Date" />
+    <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=konsheng/Sensitive-lexicon&type=Date" />
   </picture>
 </a>
 
